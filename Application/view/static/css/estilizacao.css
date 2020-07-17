@@ -1,0 +1,28 @@
+.footer {
+    position: relative;
+    background: black;
+    color: #bfbfbf;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: #444;
+    opacity: .7;
+}
+
+.footer .copyright {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 11px;
+    margin: 0;
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, .05);
+    padding: 20px 0;
+}
