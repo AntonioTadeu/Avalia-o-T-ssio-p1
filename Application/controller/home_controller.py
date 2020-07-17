@@ -9,8 +9,8 @@ from application.model.entity.noticia import Noticia
 
 @app.route("/")
 def home():
-    categoria_dao = CategoriaDAO()
-    lista_de_categoria = categoria_dao.retornar_todas_noticias()
+    categoriadao = CategoriaDAO()
+    lista_de_categoria = categoriadao.retornar_todas_noticias()
     
     lista_mais_curtidos_ordem = sorted(todas_noticias, key=Noticia.get_total_curtidas, reverse=True)
     lista_mais_curtidos = [lista_mais_curtidos_ordem[0], lista_mais_curtidos_ordem[1]]

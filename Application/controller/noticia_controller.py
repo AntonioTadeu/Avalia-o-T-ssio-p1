@@ -15,7 +15,7 @@ def exibicao(categoria_id, noticia_id):
     categoriadao = CategoriaDAO()
     noticiadao = NoticiaDAO()
     exibir_lista_noticia = noticiadao.retornar_todas_noticias()
-    noticiadao.armazenar_visualizacao(noticia)
+    noticiadao.contar_visualizacao(noticia)
     return render_template("noticia.html", mostrar = mostrar, noticia = noticia, categoria = categoria, exibir_lista_noticia = exibir_lista_noticia)
 
 

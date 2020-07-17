@@ -6,7 +6,7 @@ class Noticia:
         self._video = video
         self._total_visualizacoes = 0
         self._total_curtidas = 0
-        self._categoria_imagem = categoria_imagem
+        self._imagem_bandeira = imagem_bandeira
         self._comentarios = []
 
     def get_titulo(self):
@@ -21,8 +21,8 @@ class Noticia:
     def get_total_curtidas(self):
         return self._total_curtidas
 
-    def set_visualizacoes(self, visualizacao):
-        self._todas_visualizacoes = visualizacao
+    def set_visualizacoes(self, visualizacoes):
+        self._visualizacoes = visualizacoes
 
     def get_total_visualizacoes(self):
         return self._total_visualizacoes

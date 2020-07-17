@@ -5,8 +5,8 @@ from application.model.entity.categoria import Categoria
 
 
 @app.route("/categorias/<categoria_id>")
-def category(categoria_id):
+def categoria(categoria_id):
     categoria = CategoriaDAO().procurar(categoria_id)
     categoriadao = CategoriaDAO()
-    categoria_lista = categoriadao.retornar_lista_categorias()
+    categoria_lista = categoriadao.retornar_todas_noticias()
     return render_template("opcao-de-categoria-selecionada.html", categoria = categoria, categoria_lista = categoria_lista)
