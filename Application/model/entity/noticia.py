@@ -18,14 +18,14 @@ class Noticia:
     def set_curtida(self, curtida):
         self._todas_curtidas = curtida
         
-    def get_todas_curtidas(self):
-        return self._todas_curtidas
+    def get_total_curtidas(self):
+        return self._total_curtidas
 
     def set_visualizacoes(self, visualizacao):
         self._todas_visualizacoes = visualizacao
 
-    def get_todas_visualizacoes(self):
-        return self._todas_visualizacoes
+    def get_total_visualizacoes(self):
+        return self._total_visualizacoes
 
     def get_video(self):
         return self._video
@@ -35,111 +35,6 @@ class Noticia:
 
     def set_comentario(self, comentario):
         self._comentario.append(comentario)
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
-
-    def get_comentario(self):
-        return self._comentarios
 
     def get_comentario(self):
         return self._comentarios
