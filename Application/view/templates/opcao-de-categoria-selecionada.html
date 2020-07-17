@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+{% for noticia in categoria.get_todas_imagens() %}
+    <div id="about-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h3>Categoria: {{categoria.get_titulo()}}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="module">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <img width="750" height="450" src="{{url_for('static', filename=noticia.get_imagem_bandeira())}}"></img>
+          </div>
+          <div class="col-lg-4">
+                <ul>
+                  <li>
+                    <h5>Curtidas da notícia:</h5> {{noticia.get_total_curtidas()}}
+                  </li>
+                  <hr>
+                  <li>
+                    <h5>Visualizações da notícia:</h5> {{noticia.get_total_visualizacoes()}}
+                  </li>
+                </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h1 class="h5">Quer ver esta notícia? <a href="{{url_for('exibicao', categoria_id = categoria.get_id(), noticia_id = noticia.get_id())}}">Clique aqui.</a></h1>
+      </div>
+    </section>
+    <br><br><br>
+    {% endfor %}
+
+{%endblock%}

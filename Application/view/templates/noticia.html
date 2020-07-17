@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% for noticia in categoria.get_todas_imagens() %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="titulo">Categoria: {{categoria.get_titulo()}}</h3>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+            <h1 class="h5"> {{noticia.get_titulo()}}{{noticia.get_descricao()}}</h1>
+        </div>
+    </section>
+    <section class="module">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8">
+            <video width="750" height="425" controls src="{{url_for('static', filename = noticia.get_video())}}"></video>
+        </div>
+        <div class="col-lg-4">
+                <ul>
+                    <div>
+                        <li>
+                            <h5>Área para curtir: {{noticia.get_total_curtidas()}}</h5>
+                        </li>
+                    </div>
+                    <br>
+                    <li>
+                        <button onclick="curtir()">Curtir</button>
+                    </li>
+                <hr>
+                <li>
+                    <h5>Área para visualizações:</h5> {{noticia.get_total_visualizacoes()}}
+                </li>
+                <hr>
+                <div>
+                <form enctype="multipart/form-data" action="{{url_for('coment', noticia_id = noticia.get_id())}}" method="POST" onsubmit="return submitForm(this);">
+                    <div class="form-group">
+                        <label for="inputNome">Nome: </label>
+                        <input type="text" class="form-control" id="inputNome" name="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Deixe seu comentário</label>
+                        <textarea class="form-control" name="comentario" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+                </div>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    {% endfor %}
+    <br><br><br>
+
+{%endblock%}

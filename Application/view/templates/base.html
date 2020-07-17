@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/estilizacao.css')}}">
+    <title>Início</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <img src="{{url_for('static', filename = '#')}}" width="13%" height="13%">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('home')}}">Início</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    </header>
+
+
+    {% block body %}{% endblock %}
+
+    <footer class="footer">
+        <div class="footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="text-center"><span class="copyright">© 2020 - Todos os direitos reservados - <a href="#">Antonio Tadeu</a></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
+
+    <script src="{{url_for('static', filename = 'bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename = 'bootstrap/js/jquery-3.5.1.min.js')}}"></script>
+</body>
+</html>
