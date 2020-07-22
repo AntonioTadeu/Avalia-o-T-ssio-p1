@@ -3,19 +3,20 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h3>Menu de categorias</h3>
+          <h3 class="titulo">Menu de categorias</h3>
         </div>
       </div>
     </div>
   </div>
+  <br>
     <div class="container">
       <div class="row">
         {% for categoria in lista_de_categoria %}
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div>
-              <h3><a href="{{url_for('categoria', categoria_id = categoria.get_id())}}">{{categoria.get_titulo()}}</a></h3>
+              <h3 class="titulo"><a href="{{url_for('categoria', categoria_id = categoria.get_id())}}">{{categoria.get_titulo()}}</a></h3>
             </div>
-            <p><a href="{{url_for('categoria', categoria_id = categoria.get_id())}}"><button>Acesse a categoria</button></a></p>
+            <p><a href="{{url_for('categoria', categoria_id = categoria.get_id())}}"><button class="botaozao">Acesse a categoria</button></a></p>
         </div>
         {% endfor %}
       </div>

@@ -1,0 +1,31 @@
+
+        <section class="area_title">
+            <div class="container">
+            <div class="row-page-title">
+                <div class="page-title-captions">
+                <h1 class="h5">Comentários</h1>
+                </div>
+            </div>
+            </div>
+        </section>
+        <br><br>
+        {% for comentar in noticia.get_comentario() %}
+        <div class="comments-container">
+            <ul id="comments-list" class="comments-list">
+                <li>
+                    <div class="comment-main-level">
+                        <div class="comment-avatar"><img src="{{url_for('static', filename = 'img/anon.jpg')}}" alt=""></div>
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h5 class="comment-name"><p>{{comentar.get_nome()}}</p></h5>
+                            </div>
+                            <div class="comment-content">
+                                {{comentar.get_conteudo()}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>

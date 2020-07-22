@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+<br><br><br>
     {% for noticia in categoria.get_todas_imagens() %}
     <div class="container">
         <div class="row">
@@ -8,34 +9,35 @@
             </div>
         </div>
     </div>
+    <br>
     <section>
         <div class="container">
-            <h1 class="h5"> {{noticia.get_titulo()}}{{noticia.get_descricao()}}</h1>
+            <h1 class="h5"> {{noticia.get_titulo()}}<br><br>{{noticia.get_descricao()}}</h1>
         </div>
     </section>
+    <br>
     <section class="module">
     <div class="container">
         <div class="row">
         <div class="col-lg-8">
             <video width="750" height="425" controls src="{{url_for('static', filename = noticia.get_video())}}"></video>
         </div>
-        <div class="col-lg-4">
+        <div class="">
                 <ul>
-                    <div>
+                    <div id="div-do-like">
                         <li>
                             <h5>Área para curtir: {{noticia.get_total_curtidas()}}</h5>
                         </li>
                     </div>
                     <br>
                     <li>
-                        <button onclick="curtir()">Curtir</button>
+                        <button onclick="like()">Curtir</button>
                     </li>
                 <hr>
                 <li>
                     <h5>Área para visualizações:</h5> {{noticia.get_total_visualizacoes()}}
                 </li>
                 <hr>
-                <div>
                 <form enctype="multipart/form-data" action="{{url_for('coment', noticia_id = noticia.get_id())}}" method="POST" onsubmit="return submitForm(this);">
                     <div class="form-group">
                         <label for="inputNome">Nome: </label>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Deixe seu comentário</label>
-                        <textarea class="form-control" name="comentario" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" name="conteudo" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
@@ -54,7 +56,71 @@
         </div>
     </div>
     </section>
+    <br><br><br>
+    <div id="div-do-coment">
+        <section class="area_title">
+            <div class="container">
+            <div class="row-page-title">
+                <div class="page-title-captions">
+                <h1 class="h5">Comentários</h1>
+                </div>
+            </div>
+            </div>
+        </section>
+        <br><br>
+        {% for comentar in noticia.get_comentario() %}
+        <div class="comments-container">
+            <ul id="comments-list" class="comments-list">
+                <li>
+                    <div class="comment-main-level">
+                        <div class="comment-avatar"><img src="{{url_for('static', filename = 'img/anon.jpg')}}" alt=""></div>
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h5 class="comment-name"><p>{{comentar.get_nome()}}</p></h5>
+                            </div>
+                            <div class="comment-content">
+                                {{comentar.get_conteudo()}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
     {% endfor %}
     <br><br><br>
+
+    <script>
+        function like(formElement){
+            console.log("like");
+            var formData = new FormData(formElement)
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('POST', "{{url_for('like', noticia_id = noticia.get_id())}}", true);
+            xmlhttp.onreadystatechange = function() {
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('div-do-like').innerHTML = xmlhttp.response;
+                    };
+                };
+            xmlhttp.send(formData);
+            console.log(xmlhttp.send())
+            return false;
+        }
+    </script>
+
+    <script>
+        function submitForm(formElement){
+        var formData = new FormData(formElement);
+        var xhr = new XMLHttpRequest();
+        xhr.open(formElement.method, formElement.action);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById('div-do-coment').innerHTML = xhr.response;
+            };
+            };
+        xhr.send(formData);
+        return false;
+        }
+    </script>
 
 {%endblock%}

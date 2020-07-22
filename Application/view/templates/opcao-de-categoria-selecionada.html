@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block body %}
+<br><br><br>
 {% for noticia in categoria.get_todas_imagens() %}
     <div id="about-area">
       <div class="container">
@@ -30,9 +31,10 @@
         </div>
       </div>
     </section>
+    <br>
     <section>
       <div class="container">
-        <h1 class="h5">Quer ver esta notícia? <a href="{{url_for('exibicao', categoria_id = categoria.get_id(), noticia_id = noticia.get_id())}}">Clique aqui.</a></h1>
+        <h1 class="h5"> <a href="{{url_for('exibicao', categoria_id = categoria.get_id(), noticia_id = noticia.get_id())}}">Veja está notícia clicando aqui</a></h1>
       </div>
     </section>
     <br><br><br>

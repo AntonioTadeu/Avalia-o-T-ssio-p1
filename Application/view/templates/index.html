@@ -3,4 +3,57 @@
     <br><br><br>
     {% include 'selecionar-categoria.html' %}{% block menu %}{% endblock %}
 
+    <br><br><br>
+
+    <div id="about-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h3 class="titulo">Notícias mais curtidas</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    {% for noticia in noticias_mais_curtidas %}
+    <section>
+      <div class="container">
+        <div class="row-page-title">
+          <div class="page-title-captions">
+            <h1 class="h5"> {{noticia.get_titulo()}}</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="module">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="suporte_img">
+              <div class="image-slider">
+                <img width="750" height="450" src="{{url_for('static', filename=noticia.get_imagem_bandeira())}}"></img>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="suporte_descriptions">
+              <div class="descriptions">
+                <ul>
+                  <li>
+                    <h5>Curtidas do vídeo:</h5> {{noticia.get_total_curtidas()}}
+                  </li>
+                  <hr>
+                  <li>
+                    <h5>Visualizações do vídeo:</h5> {{noticia.get_total_visualizacoes()}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br><br><br>
+    {% endfor %}
+
 {%endblock%}
