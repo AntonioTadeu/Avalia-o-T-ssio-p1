@@ -24,9 +24,9 @@ def coment(noticia_id):
     noticiadao = NoticiaDAO()
     noticia = noticiadao.procurar_noticia(int(noticia_id))
     autor = request.values.get('nome')
-    comentario = request.values.get('comentario')
-    comentar = Comentar(comentario, autor)
-    noticia.set_comentario(coment)
+    comentario = request.values.get('conteudo')
+    comentar = Comentar(autor, comentario)
+    noticia.set_comentario(comentar)
     lista_comentario = noticia.get_comentario()
     return render_template("coment.html", noticia = noticia, lista_comentario = lista_comentario)
 
@@ -35,5 +35,5 @@ def coment(noticia_id):
 def like(noticia_id):
     noticiadao = NoticiaDAO()
     noticia = noticiadao.procurar_noticia(int(noticia_id))
-    noticiadao.contar_curtida(noticia)
+    noticiadao.somar_curtida(noticia)
     return render_template("like.html", noticia = noticia)

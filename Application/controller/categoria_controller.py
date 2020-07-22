@@ -8,5 +8,5 @@ from application.model.entity.categoria import Categoria
 def categoria(categoria_id):
     categoria = CategoriaDAO().procurar(categoria_id)
     categoriadao = CategoriaDAO()
-    categoria_lista = categoriadao.retornar_todas_noticias()
+    categoria_lista = categoriadao.retornar_todas_categorias()
     return render_template("opcao-de-categoria-selecionada.html", categoria = categoria, categoria_lista = categoria_lista)
