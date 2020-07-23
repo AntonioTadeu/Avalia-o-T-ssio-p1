@@ -1,10 +1,10 @@
 class Comentar:
-    def __init__(self, conteudo, nome):
-        self._conteudo = conteudo
+    def __init__(self, nome, conteudo):
         self._nome = nome
-
-    def get_conteudo(self):
-        return self._conteudo
+        self._conteudo = conteudo
 
     def get_nome(self):
         return self._nome
+
+    def get_conteudo(self):
+        return self._conteudo

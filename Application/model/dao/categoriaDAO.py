@@ -6,7 +6,7 @@ class CategoriaDAO:
     def __init__(self):
         self.todas_categorias = todas_categorias
 
-    def retornar_todas_noticias(self):
+    def retornar_todas_categorias(self):
         return todas_categorias
 
     def procurar(self, id):
